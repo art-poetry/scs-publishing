@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart SCS - Publishing List</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="./../assets/scripts/jquery-3.6.1.min.js"></script>
+    <script defer src="./../assets/scripts/script.js"></script>
+    <link rel="stylesheet" href="./../assets/styles/publishing-list.css" />
+  </head>
+  <body class="publishing-list">
+    <!-- header -->
+    <header>
+      <div class="title">
+        <h1><span>Smart</span>SCS</h1>
+        <h2>Publishing List</h2>
+      </div>
+    </header>
+    <!-- //header -->
+    <!-- section -->
+    <section>
+      <div class="list-wrap">
+        <!-- 01. Common -->
+        <div class="list-group">
+          <h3>01. Common</h3>
+          <table>
+            <colgroup>
+              <col width="" />
+              <col width="200" />
+              <col width="150" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">Page Subject</th>
+                <th scope="col">Updated</th>
+                <th scope="col">State</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="title">Splash</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr onclick="openPage('main.html')">
+                <td class="title">
+                  Main<br /><span class="remark"
+                    >Guide 팝업 페이지 포함 / 날씨 아이콘 추후 작업 예정</span
+                  >
+                </td>
+                <td class="date">2022-11-29</td>
+                <td class="state finished">
+                  <i class="ph-smiley"><span class="hidden">완료</span></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="title">Loading indicator</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">Loading in modal</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">Countdown</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- //01. Common -->
+
+        <!-- 02. Pages -->
+        <div class="list-group">
+          <h3>02. Pages</h3>
+          <table>
+            <colgroup>
+              <col width="" />
+              <col width="200" />
+              <col width="150" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">Page Subject</th>
+                <th scope="col">Updated</th>
+                <th scope="col">State</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr onclick="openPage('pages/identify.html')">
+                <td class="title">
+                  사용자 식별<br /><span class="remark"
+                    >직접 입력 팝업 페이지 포함<br />이용약관, 개인정보방침 팝업
+                    페이지 포함</span
+                  >
+                </td>
+                <td class="date">2022-11-30</td>
+                <td class="state finished">
+                  <i class="ph-smiley"><span class="hidden">완료</span></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="title">정보 확인 - 처음 사용자</td>
+                <td class="date"></td>
+                <td class="state ongoing">
+                  <i class="ph-spinner-gap"
+                    ><span class="hidden">진행중</span></i
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td class="title">정보 확인</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">
+                  작업 확인 및 선택<br /><span class="remark"
+                    >선택 작업 확인 팝업 페이지 포함</span
+                  >
+                </td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">안전 장비 검수 Scanning</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">안전 장비 검수 완료</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">음주 측정</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">체온 측정</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">혈압 측정</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">안전 점검 결과</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- //02. Pages -->
+
+        <!-- 03. Pop-ups -->
+        <div class="list-group">
+          <h3>03. Pop-ups</h3>
+          <table>
+            <colgroup>
+              <col width="" />
+              <col width="200" />
+              <col width="150" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">Page Subject</th>
+                <th scope="col">Updated</th>
+                <th scope="col">State</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="title">Splash 기기 연결 상태 확인</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">선택 작업 확인</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">음주 측정 - 초기화 중</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">음주 측정 - 분석중</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">측정 결과 - 실패</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">측정 결과 - 성공</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">혈압 측정 여부</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">제한 시간 초과</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">출입 QR코드 발급</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- //03. Pop-ups -->
+      </div>
+    </section>
+    <!-- //section -->
+  </body>
+</html>

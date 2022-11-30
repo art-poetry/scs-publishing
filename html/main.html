@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart SCS</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="./../assets/scripts/jquery-3.6.1.min.js"></script>
+    <script defer src="./../assets/scripts/slick.min.js"></script>
+    <script defer src="./../assets/scripts/script.js"></script>
+    <link rel="stylesheet" href="./../assets/styles/style.css" />
+
+    <script type="module">
+      // slick
+      $(document).ready(function () {
+        $('.news-area').slick({
+          autoplay: true,
+          arrows: false,
+          dots: true,
+        });
+
+        const header = document.querySelector('header');
+
+        const headerHeight = header.offsetHeight;
+        console.log('offsetHeight', headerHeight);
+
+        $('#main-section').scroll(function () {
+          const windowTop = $('#main-section').scrollTop();
+          console.log('windowTop', windowTop);
+
+          if (windowTop >= headerHeight) {
+            header.classList.add('default-style');
+          } else {
+            header.classList.remove('default-style');
+          }
+        });
+      });
+      // /slick
+    </script>
+  </head>
+  <body class="main">
+    <!-- header -->
+    <header>
+      <button type="button" class="home">
+        <i class="ph-house"><span class="hidden">Home</span></i>
+      </button>
+      <h1><span>Smart</span>SCS</h1>
+      <button type="button">
+        <i class="ph-gear"><span class="hidden">Set</span></i>
+      </button>
+    </header>
+    <!-- //header -->
+    <!-- section -->
+    <section id="main-section">
+      <!-- main-area -->
+      <div class="main-area">
+        <!-- main-contents -->
+        <div class="main-contents">
+          <!-- weather-box -->
+          <div class="weather-box">
+            <!-- weather-icon -->
+            <img src="./../assets/images/weather/sun.svg" alt="" />
+            <!-- //weather-icon -->
+            <div class="info">
+              <!-- 일부러 전부 span으로 나눠놓습니다 -->
+              <div class="info-date">
+                <span class="date">2022-11-06</span><span>AM 08:24</span>
+              </div>
+              <div class="info-weather">
+                <span class="location">영등포구</span
+                ><span class="degree">19</span
+                ><span class="celsius-mark">&#8451;</span><span>맑음</span>
+              </div>
+            </div>
+          </div>
+          <!-- //weather-box -->
+
+          <!-- button-box -->
+          <div class="button-box">
+            <button
+              type="button"
+              class="btn"
+              onclick="linkPage('pages/identify.html')"
+            >
+              <span>자가</span>안전점검
+            </button>
+          </div>
+          <!-- //button-box -->
+        </div>
+        <!-- //main-contents -->
+
+        <!-- guide-contents -->
+        <div class="guide-contents">
+          <button type="button" onclick="openBottomSheet('guide-panel')">
+            <span>처음 사용하시나요?</span><span class="btn click">Click</span>
+          </button>
+        </div>
+        <!-- //guide-contents -->
+      </div>
+      <!-- //main-area -->
+
+      <!-- news-area -->
+      <div class="news-area">
+        <img src="./../assets/images/ex-notice1.png" alt="" />
+        <img src="./../assets/images/ex-notice2.png" alt="" />
+        <img src="./../assets/images/ex-notice3.png" alt="" />
+        <img src="./../assets/images/ex-notice4.png" alt="" />
+      </div>
+      <!-- //news-area -->
+    </section>
+    <!-- //section -->
+
+    <!-- bottom-sheet -->
+    <div class="bottom-sheet" id="guide-panel">
+      <!-- bottom-sheet-container -->
+      <div class="bottom-sheet-guide">
+        <!-- close-x-button -->
+        <button
+          type="button"
+          class="close"
+          onclick="closeBottomSheet('guide-panel')"
+        >
+          <i class="ph-x-thin"><span class="hidden">닫기</span></i>
+        </button>
+        <!-- //close-x-button -->
+
+        <!-- title-area -->
+        <div class="title-area">
+          <div class="title">
+            <h2>환영합니다!<i class="ph-smiley"></i></h2>
+          </div>
+          <div class="title-description">
+            <span class="en">APP</span>을 설치하고 출입
+            <span class="en">QR</span>코드를 발급받는 방법을 알려드릴게요.
+          </div>
+        </div>
+        <!-- //title-area -->
+
+        <!-- contents-area -->
+        <div class="contents-area">
+          <ol class="how-to">
+            <li>
+              <h3>
+                <span class="en">APP</span> 설치<span class="info-install"
+                  ><i class="ph-asterisk-simple"></i>안드로이드 버전 5.0 이상
+                  설치 가능</span
+                >
+              </h3>
+              <span
+                >구글플레이에서 <span class="en">'Smart SCS'</span>를 검색하여
+                <span class="en">APP</span>을 설치합니다.</span
+              >
+              <div class="qr-install">
+                <img
+                  src="./../assets/images/img-app-qr.png"
+                  alt="APP 설치 QR코드"
+                />
+                <div class="description">
+                  <i class="ph-caret-left"></i
+                  ><span class="text"
+                    ><span class="en">APP</span> 설치
+                    <span class="en">QR</span>코드</span
+                  >
+                </div>
+              </div>
+            </li>
+            <li>
+              <h3>작업자 <span class="en">QR</span>코드 발급</h3>
+              <span
+                ><span class="en">APP</span> 실행 후 본인의 정보를 입력하고
+                작업자 <span class="en">QR</span>코드를 발급받습니다.</span
+              >
+            </li>
+            <li>
+              <h3>작업 선택 및 안전점검</h3>
+              <ol class="safety-check">
+                <li>
+                  <h4><span class="en">QR</span>코드 인식</h4>
+                  <span
+                    >발급받은 <span class="en">QR</span>코드를 키오스크에
+                    인식하여 개인정보를 확인합니다.</span
+                  >
+                </li>
+                <li>
+                  <h4>작업사항 확인 및 선택</h4>
+                  <span>본인의 작업사항을 확인하고 선택합니다.</span>
+                </li>
+                <li>
+                  <h4>자가 안전점검</h4>
+                  <span
+                    >안전 장비 착용 검수 및 음주, 체온 등을 측정합니다.</span
+                  >
+                </li>
+              </ol>
+            </li>
+            <li>
+              <h3>출입 <span class="en">QR</span>코드 발급</h3>
+              <span
+                >출입 <span class="en">QR</span>코드를 발급받으면
+                완료됩니다.</span
+              >
+            </li>
+          </ol>
+        </div>
+        <!-- //contents-area -->
+
+        <!-- button-area -->
+        <div class="button-area">
+          <button
+            type="button"
+            class="btn"
+            onclick="closeBottomSheet('guide-panel')"
+          >
+            확인했어요
+          </button>
+        </div>
+        <!-- //button-area -->
+      </div>
+      <!-- //bottom-sheet-container -->
+    </div>
+    <!-- //bottom-sheet -->
+  </body>
+</html>
