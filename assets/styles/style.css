@@ -1934,13 +1934,18 @@ table tbody .title a {
   background-color: #fff;
 }
 .slick-list .slick-track {
+  height: 100%;
+}
+.slick-list .slick-track .slick-slide div {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
 }
-.slick-list .slick-track .slick-slide {
+.slick-list .slick-track .slick-slide img {
+  width: 100%;
+  height: 100%;
   border-radius: 40px;
 }
 
