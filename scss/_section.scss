@@ -401,10 +401,7 @@ table {
 }
 
 .news-area {
+  @include flex-grow;
   padding: $global-space;
-  img {
-    width: 100%;
-    border-radius: $radius-default;
-  }
 }
 // /main
