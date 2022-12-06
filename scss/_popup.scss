@@ -1,3 +1,109 @@
+// modal
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: $modal-space;
+  z-index: 999;
+
+  &.active {
+    display: block;
+  }
+
+  &::before {
+    @include pseudo-before;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    animation: fade-in 0.3s ease forwards;
+    z-index: -1;
+  }
+
+  + .modal {
+    &::before {
+      content: none;
+      display: none;
+    }
+  }
+
+  &-container {
+    @include flex-center;
+  }
+
+  .modal-wrap {
+    @include flex-column;
+    width: 100%;
+    min-width: 45.625rem; // 730px
+    max-width: 56.25rem; // 900px
+    min-height: 18.75rem; // 300px;
+    border-radius: $radius-modal;
+    background-color: $color-white;
+    box-shadow: $box-shadow-modal;
+    animation: slide-in-down 0.5s ease;
+    z-index: 9999;
+  }
+
+  .contents-area {
+    @include flex-grow;
+    padding: 4.375em; // 70px
+    line-height: 1.4;
+
+    .title {
+      color: $color-primary;
+      font: {
+        size: 2.604rem; // 41.664px
+        weight: 700;
+      }
+      &-description {
+        padding-top: 0.9em; // 25px
+        font-size: 1.736rem; // 27.776px
+
+        &.selected-task {
+          color: $color-dark;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .button-area {
+    @include flex-between;
+
+    .btn {
+      width: 100%;
+      height: 8.75rem; // 140px
+      border-radius: 0;
+      background-color: #e6ebf2;
+      color: #6e747d;
+      font-size: 2.604rem; // 41.664px
+
+      &:first-child {
+        border-bottom-left-radius: $radius-modal;
+      }
+      &:last-child {
+        border-bottom-right-radius: $radius-modal;
+        background-color: $color-secondary-deep;
+        color: $color-light;
+      }
+      &:only-child {
+        border: {
+          bottom-left-radius: $radius-modal;
+          bottom-right-radius: $radius-modal;
+        }
+        background-color: $color-secondary-deep;
+        color: $color-light;
+      }
+    }
+  }
+}
+
 // bottom-sheet
 .bottom-sheet {
   &::before {
@@ -232,7 +338,7 @@
       }
     }
 
-    .safety-check {
+    .safety-check-order {
       margin-top: 0.938em; // 15px
 
       li {
@@ -322,7 +428,7 @@
         bottom: 3.125rem; // 50px
       }
       padding: {
-        top: $inner-space; 
+        top: $inner-space;
         bottom: $inner-space;
         left: 0;
         right: $inner-space;
