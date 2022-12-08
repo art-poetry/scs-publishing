@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
   padding: $modal-space;
-  z-index: 999;
+  z-index: 10000;
 
   &.active {
     display: block;
@@ -42,12 +42,12 @@
     width: 100%;
     min-width: 45.625rem; // 730px
     max-width: 56.25rem; // 900px
-    min-height: 18.75rem; // 300px;
+    min-height: 16.875rem; // 270px;
     border-radius: $radius-modal;
     background-color: $color-white;
     box-shadow: $box-shadow-modal;
     animation: slide-in-down 0.5s ease;
-    z-index: 9999;
+    z-index: 10001;
   }
 
   .contents-area {

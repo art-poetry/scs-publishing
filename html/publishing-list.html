@@ -44,7 +44,7 @@
                 <td class="date"></td>
                 <td class="state"></td>
               </tr>
-              <tr onclick="openPage('main.html')">
+              <tr onclick="openPage('./main.html')">
                 <td class="title">
                   Main<br /><span class="remark"
                     >Guide 팝업 페이지 포함 / 날씨 아이콘 추후 작업 예정</span
@@ -57,11 +57,6 @@
               </tr>
               <tr>
                 <td class="title">Loading indicator</td>
-                <td class="date"></td>
-                <td class="state"></td>
-              </tr>
-              <tr>
-                <td class="title">Loading in modal</td>
                 <td class="date"></td>
                 <td class="state"></td>
               </tr>
@@ -94,7 +89,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr onclick="openPage('pages/identify.html')">
+              <tr onclick="openPage('./pages/identify.html')">
                 <td class="title">
                   사용자 식별<br /><span class="remark"
                     >직접 입력 팝업 페이지 포함<br />이용약관, 개인정보방침 팝업
@@ -106,7 +101,7 @@
                   <i class="ph-smiley"><span class="hidden">완료</span></i>
                 </td>
               </tr>
-              <tr onclick="openPage('pages/user-verify-first.html')">
+              <tr onclick="openPage('./pages/user-verify-first.html')">
                 <td class="title">
                   정보 확인 - 처음 사용자<br /><span class="remark"
                     >shooting 카운트다운 포함</span
@@ -117,7 +112,7 @@
                   <i class="ph-smiley"><span class="hidden">완료</span></i>
                 </td>
               </tr>
-              <tr onclick="openPage('pages/user-verify.html')">
+              <tr onclick="openPage('./pages/user-verify.html')">
                 <td class="title">
                   정보 확인<br /><span class="remark"
                     >shooting 카운트다운 포함, 예시 이미지 有</span
@@ -128,7 +123,7 @@
                   <i class="ph-smiley"><span class="hidden">완료</span></i>
                 </td>
               </tr>
-              <tr onclick="openPage('pages/task-select.html')">
+              <tr onclick="openPage('./pages/task-select.html')">
                 <td class="title">
                   작업 확인 및 선택<br /><span class="remark"
                     >선택 작업 확인 팝업 페이지 포함 - 첫번째 작업 클릭하면 팝업
@@ -140,7 +135,7 @@
                   <i class="ph-smiley"><span class="hidden">완료</span></i>
                 </td>
               </tr>
-              <tr onclick="openPage('pages/task-select-page-disabled.html')">
+              <tr onclick="openPage('./pages/task-select-page-disabled.html')">
                 <td class="title">
                   작업 확인 및 선택<br /><span class="remark"
                     >테이블 Pagination disabled</span
@@ -151,8 +146,24 @@
                   <i class="ph-smiley"><span class="hidden">완료</span></i>
                 </td>
               </tr>
+              <tr onclick="openPage('./pages/safety-check.html')">
+                <td class="title">안전 장비 검수 - Scanning<br /><span class="remark"
+                  >shooting 카운트다운 포함</span
+                ></td>
+                <td class="date">2022-12-08</td>
+                <td class="state finished">
+                  <i class="ph-smiley"><span class="hidden">완료</span></i>
+                </td>
+              </tr>
+              <tr onclick="openPage('./pages/safety-check-finished.html')">
+                <td class="title">안전 장비 검수 - 완료</td>
+                <td class="date">2022-12-08</td>
+                <td class="state finished">
+                  <i class="ph-smiley"><span class="hidden">완료</span></i>
+                </td>
+              </tr>
               <tr>
-                <td class="title">안전 장비 검수 Scanning</td>
+                <td class="title">음주 측정 - 음주 측정기 초기화 중</td>
                 <td class="date"></td>
                 <td class="state ongoing">
                   <i class="ph-spinner-gap"
@@ -160,28 +171,35 @@
                   >
                 </td>
               </tr>
-              <tr>
-                <td class="title">안전 장비 검수 완료</td>
-                <td class="date"></td>
-                <td class="state"></td>
               </tr>
               <tr>
                 <td class="title">음주 측정</td>
                 <td class="date"></td>
                 <td class="state"></td>
-              </tr>
               <tr>
-                <td class="title">음주 측정 - 초기화 중</td>
+                <td class="title">음주 측정 - 결과 분석중</td>
                 <td class="date"></td>
                 <td class="state"></td>
               </tr>
               <tr>
-                <td class="title">음주 측정 - 분석중</td>
+                <td class="title">체온 측정<br /><span class="remark"
+                  >측정 시작 타이머 팝업 포함</td>
                 <td class="date"></td>
                 <td class="state"></td>
               </tr>
               <tr>
-                <td class="title">체온 측정</td>
+                <td class="title">체온 측정 - 팝업에 체온 측정기 위치 정보 없는 형태<br /><span class="remark"
+                  >측정 시작 타이머 팝업 포함</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">체온 측정 결과 - 실패</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">체온 측정 결과 - 성공</td>
                 <td class="date"></td>
                 <td class="state"></td>
               </tr>
@@ -253,6 +271,11 @@
               </tr>
               <tr>
                 <td class="title">제한 시간 초과</td>
+                <td class="date"></td>
+                <td class="state"></td>
+              </tr>
+              <tr>
+                <td class="title">에러 발생</td>
                 <td class="date"></td>
                 <td class="state"></td>
               </tr>

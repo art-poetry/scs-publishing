@@ -10,26 +10,26 @@
     <script defer src="./../../assets/scripts/script.js"></script>
     <link rel="stylesheet" href="./../../assets/styles/style.css" />
     <script type="module">
-      let progress = 3;
+      let countdown = 3;
       const timer = setInterval(() => {
-        progress -= 1;
-        if (progress >= 0) updateProgress(progress);
+        countdown -= 1;
+        if (countdown >= 0) updateCountdown(countdown);
       }, 1000);
 
-      function updateProgress(value) {
+      function updateCountdown(value) {
         if (value == 0) {
           $('.dimmed-countdown').hide();
           return;
         }
         $('#countdown-num').text(parseInt(value * 1));
       }
-      updateProgress(3);
+      updateCountdown(countdown);
     </script>
   </head>
   <body>
     <!-- header -->
     <header>
-      <button type="button" class="home" onclick="linkPage('../main.html')">
+      <button type="button" class="home" onclick="linkPage('./../main.html')">
         <i class="ph-house"><span class="hidden">Home</span></i>
       </button>
       <h1><span>Smart</span>SCS</h1>
@@ -100,7 +100,7 @@
       <!-- countdown -->
       <div class="countdown-wrap">
         <div class="countdown">
-          <span class="num" id="countdown-num">3</span>
+          <span class="countdown-num" id="countdown-num">3</span>
         </div>
       </div>
       <!-- //countdown -->
