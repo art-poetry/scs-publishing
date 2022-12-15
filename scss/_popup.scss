@@ -102,6 +102,112 @@
       }
     }
   }
+
+  &.toast {
+    .modal-wrap {
+      max-width: 46.25rem; // 740px
+      .contents-area {
+        display: flex;
+        align-items: center;
+        padding: 3.5em; // 56px
+      }
+    }
+
+    .toast-text {
+      color: $color-text-sub;
+      strong {
+        @include text-highlight;
+        color: $color-primary-deep;
+        font-weight: 500;
+      }
+
+      &-title {
+        color: #dd4351;
+        font: {
+          size: 2.604rem; // 41.664px
+          weight: 500;
+        }
+      }
+
+      &-sub-title {
+        color: #dd4351;
+        font: {
+          size: 1.953rem; // 31.248px
+          weight: 500;
+        }
+        line-height: 1.2;
+      }
+
+      &-sub {
+        padding-top: 0.36em; // 10px
+        font-size: 1.736rem; // 27.776px
+
+        .countdown-num {
+          display: inline-block;
+          width: 0.72em; // 20px
+          color: $color-important;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .toast-icon {
+      @include flex-column-center;
+      margin-right: 0.167em; // 20px
+      color: $color-important;
+      font-size: 7.5rem; // 120px
+    }
+
+    .result {
+      &-value {
+        @include en;
+        @include flex-column-center;
+        $size: 11.25rem; // 180px
+        width: $size;
+        height: $size;
+        margin-right: 0.617em; // 30px
+        border-radius: $radius-round;
+        background-color: #dd4351;
+        color: $color-white;
+        font: {
+          size: 3.038rem; // 48.608px // 3.255rem; // 52.08px
+          weight: 700;
+        }
+      }
+    }
+
+    &.pass,
+    &.fail {
+      .contents-area::before {
+        @include pseudo-before;
+        $size: 6.25rem; // 100px
+        top: -7.5rem; // 120px
+        left: calc(50% - (#{$size} / 2));
+        width: $size;
+        height: $size;
+        background: {
+          image: image-path('ico-fail-face.svg');
+          repeat: no-repeat;
+          position: 50%;
+          size: $size auto;
+        }
+      }
+    }
+
+    &.pass {
+      .contents-area::before {
+        background-image: image-path('ico-pass-face.svg');
+      }
+      .result {
+        &-value {
+          background-color: $color-secondary;
+        }
+      }
+      .toast-text-title {
+        color: $color-primary;
+      }
+    }
+  }
 }
 
 // bottom-sheet

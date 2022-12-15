@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart SCS</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="./../../assets/scripts/jquery-3.6.1.min.js"></script>
+    <script defer src="./../../assets/scripts/script.js"></script>
+    <link rel="stylesheet" href="./../../assets/styles/style.css" />
+    <script type="module">
+      let countdown = 5;
+      const timer = setInterval(() => {
+        countdown -= 1;
+        if (countdown >= 0) updateCountdown(countdown);
+      }, 1000);
+
+      function updateCountdown(value) {
+        // if (value == 0) {
+        //   $('.modal').hide();
+        //   return;
+        // }
+        $('#countdown-num').text(parseInt(value * 1));
+      }
+      updateCountdown(countdown);
+    </script>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <button type="button" class="home" onclick="linkPage('./../main.html')">
+        <i class="ph-house"><span class="hidden">Home</span></i>
+      </button>
+      <h1><span>Smart</span>SCS</h1>
+      <button type="button">
+        <i class="ph-gear"><span class="hidden">Set</span></i>
+      </button>
+    </header>
+    <!-- //header -->
+
+    <!-- section -->
+    <section class="step-section">
+      <!-- step-area -->
+      <div class="step-area">
+        <ol>
+          <li class="finished">정보 확인<br />작업 선택</li>
+          <li class="finished">안전 장비 검수</li>
+          <li class="active">음주 측정</li>
+          <li>체온 측정</li>
+          <li>혈압 측정</li>
+          <li>QR 발급</li>
+        </ol>
+      </div>
+      <!-- //step-area -->
+    </section>
+    <!-- //section -->
+
+    <!-- modal toast -->
+    <!-- 실패는 fail / 성공은 pass 붙어요 -->
+    <div class="modal toast pass active">
+      <!-- modal-container -->
+      <div class="modal-container">
+        <!-- modal-wrap -->
+        <div class="modal-wrap">
+          <!-- contents-area -->
+          <div class="contents-area">
+            <div class="result-value">0.000</div>
+            <div class="toast-text">
+              <div class="toast-text-title">적정 수치입니다.</div>
+              <div class="toast-text-sub">
+                <span class="countdown-num" id="countdown-num">5</span>초 후 다음 단계로 이동합니다.
+              </div>
+            </div>
+          </div>
+          <!-- //contents-area -->
+        </div>
+        <!-- //modal-wrap -->
+      </div>
+      <!-- //modal-container -->
+    </div>
+    <!-- //modal toast -->
+  </body>
+</html>

@@ -10,7 +10,7 @@
     <script defer src="./../../assets/scripts/script.js"></script>
     <link rel="stylesheet" href="./../../assets/styles/style.css" />
     <script type="module">
-      let countdown = 3;
+      let countdown = 5;
       const timer = setInterval(() => {
         countdown -= 1;
         if (countdown >= 0) updateCountdown(countdown);
@@ -18,7 +18,7 @@
 
       function updateCountdown(value) {
         if (value == 0) {
-          $('.dimmed-countdown').hide();
+          $('.modal').hide();
           return;
         }
         $('#countdown-num').text(parseInt(value * 1));
@@ -44,10 +44,10 @@
       <!-- step-area -->
       <div class="step-area">
         <ol>
-          <li class="active">정보 확인<br />작업 선택</li>
-          <li>안전 장비 검수</li>
-          <li>음주 측정</li>
-          <li>체온 측정</li>
+          <li class="finished">정보 확인<br />작업 선택</li>
+          <li class="finished">안전 장비 검수</li>
+          <li class="finished">음주 측정</li>
+          <li class="active">체온 측정</li>
           <li>혈압 측정</li>
           <li>QR 발급</li>
         </ol>
@@ -57,50 +57,52 @@
       <!-- title-area -->
       <div class="title-area">
         <div class="title">
-          <h2>정보 확인</h2>
+          <h2>체온 측정</h2>
         </div>
-        <h3><span>정우주</span><span class="user-hi">님, 안녕하세요.</span></h3>
         <div class="title-description">
-          정면을 보고 바르게 서 주세요.<br />
-          사진 촬영 후 자동으로 다음 단계로 진행됩니다.
+          측정기에 손목을 대 주세요.<br />
+          측정기와 손목의 거리는 약 <span class="en">10cm</span> 정도면 적당합니다.
         </div>
       </div>
       <!-- //title-area -->
 
       <!-- contents-area -->
       <div class="contents-area">
-        <!-- photos-wrap -->
-        <div class="photos-wrap">
-          <!-- 지난번에 찍은 사진 영역 -->
-          <div class="photo-last">
-            <div class="photo-box"></div>
-            <div class="description"><span>지난번에 찍은 사진</span></div>
-          </div>
-          <!-- //지난번에 찍은 사진 영역 -->
-
-          <!-- 지금 찍는 영역 -->
-          <div class="photo-shoot">
-            <div class="photo-box"></div>
-            <div class="description"><span>지금 찍고 있어요!</span></div>
-          </div>
-          <!-- //지금 찍는 영역 -->
+        <div class="image-wrap kiosk temperature">
+          <img
+            src="./../../assets/images/img-temperature.png"
+            alt="체온 측정"
+          />
         </div>
-        <!-- //photos-wrap -->
       </div>
       <!-- //contents-area -->
     </section>
     <!-- //section -->
 
-    <!-- dimmed-countdown -->
-    <div class="dimmed-countdown">
-      <!-- countdown -->
-      <div class="countdown-wrap">
-        <div class="countdown">
-          <span class="countdown-num" id="countdown-num">3</span>
+    <!-- modal toast -->
+    <!-- 실패는 fail / 성공은 pass 붙어요 -->
+    <div class="modal toast fail active">
+      <!-- modal-container -->
+      <div class="modal-container">
+        <!-- modal-wrap -->
+        <div class="modal-wrap">
+          <!-- contents-area -->
+          <div class="contents-area">
+            <div class="result-value">33.2</div>
+            <div class="toast-text">
+              <div class="toast-text-title">적정 체온이 아니에요.</div>
+              <div class="toast-text-sub">
+                <span class="countdown-num" id="countdown-num">5</span>초 후 다시
+                측정합니다. (<span>1</span>/3회)
+              </div>
+            </div>
+          </div>
+          <!-- //contents-area -->
         </div>
+        <!-- //modal-wrap -->
       </div>
-      <!-- //countdown -->
+      <!-- //modal-container -->
     </div>
-    <!-- //dimmed-countdown -->
+    <!-- //modal toast -->
   </body>
 </html>

@@ -155,3 +155,21 @@
     transform: rotateX(180deg) translateY(100%);
   }
 }
+
+// blow
+@keyframes blow {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 1000;
+  }
+  40% {
+    opacity: 1;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+  }
+  80% {
+    opacity: 0;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: -1000;
+  }
+}
