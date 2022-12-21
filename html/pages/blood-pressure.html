@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart SCS</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="./../../assets/scripts/jquery-3.6.1.min.js"></script>
+    <script defer src="./../../assets/scripts/jquery-ui.min.js"></script>
+    <script defer src="./../../assets/scripts/script.js"></script>
+    <link rel="stylesheet" href="./../../assets/styles/style.css" />
+    <script>
+      const limit = 30;
+      let progress = limit;
+      let timer;
+
+      function startTimer() {
+        closeModal('modal');
+        $('#complete-timer').addClass('active');
+        timer = setInterval(() => {
+          progress -= 1;
+          if (progress >= 0) updateProgress(progress);
+        }, 1000);
+        updateProgress(progress);
+      }
+
+      function updateProgress(value) {
+        $('#timer-bar').progressbar({
+          value: (value * 100) / limit,
+        });
+        $('#timer-num').text(parseInt(value * 1));
+      }
+    </script>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <button type="button" class="home" onclick="linkPage('./../main.html')">
+        <i class="ph-house"><span class="hidden">Home</span></i>
+      </button>
+      <h1><span>Smart</span>SCS</h1>
+      <button type="button">
+        <i class="ph-gear"><span class="hidden">Set</span></i>
+      </button>
+    </header>
+    <!-- //header -->
+
+    <!-- section -->
+    <section class="step-section">
+      <!-- step-area -->
+      <div class="step-area">
+        <ol>
+          <li class="finished">정보 확인<br />작업 선택</li>
+          <li class="finished">안전 장비 검수</li>
+          <li class="finished">음주 측정</li>
+          <li class="finished">체온 측정</li>
+          <li class="active">혈압 측정</li>
+          <li>QR 발급</li>
+        </ol>
+      </div>
+      <!-- //step-area -->
+
+      <!-- title-area -->
+      <div class="title-area">
+        <div class="title">
+          <h2>혈압 측정</h2>
+        </div>
+        <div class="title-description">
+          혈압계로 가서 준비한 후
+          <strong>&#91;시작&#93; 버튼을 눌러</strong> 측정해 주세요.<br />
+          중간에 &#91;정지&#93; 버튼을 누르면 측정이 되지 않습니다.
+        </div>
+        <div class="complete-timer" id="complete-timer">
+          <span class="timer-num" id="timer-num">30</span>초 내에 완료해 주세요.
+          <div class="timer-bar" id="timer-bar"></div>
+        </div>
+      </div>
+      <!-- //title-area -->
+
+      <!-- contents-area -->
+      <div class="contents-area">
+        <div class="image-wrap">
+          <div class="blood-heart"></div>
+          <img
+            src="./../../assets/images/img-blood-pressure.png"
+            alt="체온 측정"
+          />
+        </div>
+      </div>
+      <!-- //contents-area -->
+    </section>
+    <!-- //section -->
+
+    <!-- modal -->
+    <div class="modal active" id="modal">
+      <!-- modal-container -->
+      <div class="modal-container">
+        <!-- modal-wrap -->
+        <div class="modal-wrap">
+          <!-- contents-area -->
+          <div class="contents-area">
+            <div class="title">혈압을 측정하시겠어요?</div>
+            <div class="title-description">
+              &#39;아니요&#39;를 선택하면 혈압 측정을 건너뛰고
+              <span class="en">QR</span>코드 발급 단계로 이동합니다.
+            </div>
+          </div>
+          <!-- //contents-area -->
+
+          <!-- button-area -->
+          <div class="button-area">
+            <button
+              type="button"
+              class="btn"
+              onclick="linkPage('./result.html')"
+            >
+              아니요
+            </button>
+            <button type="button" class="btn" onclick="startTimer()">
+              네, 측정할게요
+            </button>
+          </div>
+          <!-- //button-area -->
+        </div>
+        <!-- //modal-wrap -->
+      </div>
+      <!-- //modal-container -->
+    </div>
+    <!-- //modal -->
+  </body>
+</html>

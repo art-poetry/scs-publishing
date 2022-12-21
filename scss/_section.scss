@@ -7,6 +7,30 @@ section {
   &.step-section {
     padding-top: 3.125rem; // 50px;;
   }
+  &.splash {
+    height: 100vh;
+    margin-top: 0;
+  }
+
+  // button-area
+  // page에서 하단 버튼은 QR코드 발급 page 밖에 없음
+  .button-area {
+    display: flex;
+    flex-direction: column;
+    padding-top: 6.25em; // 100px
+    .btn {
+      height: 2.88em; // 120px
+      background-color: $color-primary;
+      color: #f3f6fe;
+      font-size: 2.604rem; // 41.664px
+
+      &:hover,
+      &:focus,
+      &:visited {
+        background-color: $color-primary-deep;
+      }
+    }
+  }
 }
 
 // section exception
@@ -84,6 +108,15 @@ h2 {
   }
   .timer-bar {
     margin-top: 0.288em; // 8px
+  }
+
+  // 혈압 측정은 측정 여부 먼저 묻고 진행돼서 id로 추가
+  &#complete-timer {
+    visibility: hidden;
+
+    &.active {
+      visibility: visible;
+    }
   }
 }
 
@@ -586,6 +619,104 @@ h2 {
   }
 }
 
+// blood-heart
+.blood-heart {
+  position: absolute;
+  top: 24.3%;
+  right: 25.4%;
+  width: 5.5%;
+  height: 5.7%;
+  animation: heart 1s infinite;
+  &::before,
+  &::after {
+    @include pseudo-before;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 80%;
+    background-color: #aa0000;
+    border: {
+      top-left-radius: $radius-round;
+      top-right-radius: $radius-round;
+    }
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    animation: heart-color 1s infinite;
+  }
+
+  &::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+    animation: heart-color 1s infinite;
+  }
+}
+
+// results
+.results {
+  li {
+    $space-v: 0.524em; // 20px
+    position: relative;
+    padding: {
+      top: $space-v;
+      bottom: $space-v;
+      left: 1.702em; // 65px
+    }
+    border-bottom: 1px solid #d7dde7;
+    color: $color-primary-deep;
+    font-size: 2.387rem; // 38.192px
+
+    &::before {
+      @include pseudo-before;
+      $size: 1.204em; // 46px 38px
+      top: calc(50% - (#{$size} / 2));
+      left: 0.375rem; // 6px
+      width: $size;
+      height: $size;
+      border-radius: $radius-round;
+      background: {
+        image: image-path('ico-result-pass.svg');
+        position: 0 0;
+        repeat: no-repeat;
+        size: 100% auto;
+      }
+    }
+
+    &::after {
+      @include pseudo-before;
+      $height: 2.232em; // 62px
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      content: '통과';
+      top: calc(50% - (#{$height} / 2));
+      right: 0;
+      width: 4.86em; // 135px
+      height: $height;
+      border-radius: $radius-round;
+      background-color: #e4e5eb;
+      color: #898da0;
+      font: {
+        size: 0.727em; // 27.776px
+        weight: 700;
+      }
+    }
+
+    &.fail {
+      &::before {
+        background: {
+          image: image-path('ico-result-fail.svg');
+        }
+      }
+
+      &::after {
+        content: '미통과';
+        color: #c70d0d;
+      }
+    }
+  }
+}
+
 // main
 .main-area {
   @include flex-column;
@@ -737,3 +868,108 @@ h2 {
   padding: $global-space;
 }
 // /main
+
+// splash
+.splash {
+  background-color: $color-primary;
+  text-align: center;
+  cursor: default;
+
+  .logo-area {
+    padding-top: 12.5em; // 200px
+  }
+  .logo-symbol-area {
+    $space-h: 8.125em; // 130px
+    padding: {
+      top: 3.125em; // 50px
+      right: $space-h;
+      left: $space-h;
+    }
+
+    .logo-symbol-box {
+      position: relative;
+
+      &::before {
+        @include pseudo-before;
+        $line-color: #f3f4fa;
+        width: 100%;
+        height: 40%;
+        border: {
+          width: 4px 0 0 0;
+          style: solid;
+          image: linear-gradient(
+            to right,
+            rgba($line-color, 0.5) 0%,
+            rgba($line-color, 1) 10%,
+            rgba($line-color, 1) 90%,
+            rgba($line-color, 0.5) 100%
+          );
+          image-slice: 1;
+        }
+        background: linear-gradient(
+          to bottom,
+          rgba($color-white, 0.5) 0%,
+          rgba($color-white, 0.3) 30%,
+          rgba($color-white, 0) 80%
+        );
+        opacity: 1;
+        box-sizing: border-box;
+        top: 50%;
+        animation: scan-symbol 3.2s linear infinite 1s;
+        z-index: 99;
+      }
+    }
+  }
+
+  &.paused {
+    .logo-symbol-area {
+      .logo-symbol-box {
+        &::before {
+          animation-play-state: paused;
+        }
+      }
+    }
+  }
+
+  h1 {
+    color: #f3f6fe;
+    font: {
+      size: 5.208rem; // 83.328px
+      weight: 600;
+    }
+    letter-spacing: 0.03em;
+    span {
+      @include en;
+      padding-right: 0.247em;
+      color: #7c9bfe;
+      font-weight: 300;
+    }
+  }
+
+  h2 {
+    color: #7789c2;
+    font: {
+      size: 1.519rem; // 24.304px
+      weight: 300;
+    }
+    line-height: 0.8;
+    letter-spacing: 0.03em;
+    span {
+      position: relative;
+      padding-right: 5.143em; // 125px
+
+      &::before {
+        @include pseudo-before;
+        $line: 0.063rem; // 1px
+        $pos-left: 2.921em; // 71px
+        $pos-right: 0.329em; // 8px
+        top: calc(50% - (#{$line} / 2));
+        left: $pos-left;
+        right: $pos-right;
+        width: calc(100% - (#{$pos-left} + #{$pos-right}));
+        height: $line;
+        background-color: #7789c2;
+      }
+    }
+  }
+}

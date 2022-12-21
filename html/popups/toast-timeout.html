@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart SCS</title>
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script defer src="./../../assets/scripts/jquery-3.6.1.min.js"></script>
+    <script defer src="./../../assets/scripts/script.js"></script>
+    <link rel="stylesheet" href="./../../assets/styles/style.css" />
+    <script type="module">
+      let countdown = 5;
+      const timer = setInterval(() => {
+        countdown -= 1;
+        if (countdown >= 0) updateCountdown(countdown);
+      }, 1000);
+
+      function updateCountdown(value) {
+        if (value == 0) {
+          document.location.href = './../main.html';
+          return;
+        }
+        $('#countdown-num').text(parseInt(value * 1));
+      }
+      updateCountdown(countdown);
+    </script>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <button type="button" class="home" onclick="linkPage('./../main.html')">
+        <i class="ph-house"><span class="hidden">Home</span></i>
+      </button>
+      <h1><span>Smart</span>SCS</h1>
+      <button type="button">
+        <i class="ph-gear"><span class="hidden">Set</span></i>
+      </button>
+    </header>
+    <!-- //header -->
+
+    <!-- modal toast -->
+    <div class="modal toast active">
+      <!-- modal-container -->
+      <div class="modal-container">
+        <!-- modal-wrap -->
+        <div class="modal-wrap">
+          <!-- contents-area -->
+          <div class="contents-area">
+            <div class="toast-icon"><i class="ph-timer"></i></div>
+            <div class="toast-text">
+              <div class="toast-text-title">제한 시간이 초과되었습니다.</div>
+              <div class="toast-text-sub">
+                <span class="countdown-num" id="countdown-num">5</span>초 후
+                초기화 됩니다.
+              </div>
+            </div>
+          </div>
+          <!-- //contents-area -->
+        </div>
+        <!-- //modal-wrap -->
+      </div>
+      <!-- //modal-container -->
+    </div>
+    <!-- //modal toast -->
+  </body>
+</html>
